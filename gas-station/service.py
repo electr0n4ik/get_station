@@ -13,8 +13,24 @@ from base import Transaction, Station, Point
 
 
 def get_token(url, login, password):
-    # Версия установленного браузера должна совпадать с версией chromedriver
-    # В этой проекте версия 126
+    """
+    Выполняет вход на указанный URL, используя предоставленные учетные данные,
+    и извлекает токен аутентификации из cookies браузера.
+
+    Версия установленного браузера должна совпадать с версией chromedriver.
+    В этом проекте версия 126.
+
+    Параметры:
+
+        url (str): URL страницы входа.
+        login (str): Имя пользователя для входа.
+        password (str): Пароль для входа.
+
+    Результат:
+
+        token (str): Токен аутентификации.
+    """
+
     chrome_driver_path = "/snap/chromium/2897/usr/lib/chromium-browser/chromedriver"
     chrome_binary_path = "/usr/bin/google-chrome"
     token = None
@@ -54,6 +70,19 @@ def get_token(url, login, password):
 
 
 def extract_transactions(soup, credential, params_date):
+    """
+    Извлекает данные о транзакциях из таблицы.
+
+    Параметры:
+
+        soup (BeautifulSoup): Объект BeautifulSoup с данными о транзакциях.
+        credential (Credential): Креденчантные данные.
+        params_date (dict): Дата начала и конца периода.
+
+    Результат:
+
+        transactions (list[Transaction]): Список транзакций.
+    """
     transactions = []
     from_date = params_date["from_date"]
     to_date = params_date["to_date"]

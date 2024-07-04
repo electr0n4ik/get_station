@@ -21,7 +21,9 @@ class GasStationSystem(BaseSystem):
         credential = self.credential
         params_date = {"from_date": from_date, "to_date": to_date}
         headers = {
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,\
+                image/avif,image/webp,image/apng,*/*;q=0.8,application/\
+                    signed-exchange;v=b3;q=0.7",
             "Accept-Encoding": "gzip, deflate, br, zstd",
             "Accept-Language": "en,ru;q=0.9,ru-RU;q=0.8,en-US;q=0.7",
             "Dnt": "1",
@@ -29,7 +31,8 @@ class GasStationSystem(BaseSystem):
             "Sec-Fetch-Mode": "same-origin",
             "Sec-Fetch-Site": "same-origin",
             "Upgrade-Insecure-Requests": "1",
-            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 \
+                (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
             "Cookie": f"testovaia_ploshhadaka_abakam_session={credential.token}",
         }
 
@@ -41,7 +44,8 @@ class GasStationSystem(BaseSystem):
         page = 1
         while True:
             response = requests.get(
-                f"{credential.url}/account/transactions?page_size=100&page={page}",
+                f"{credential.url}/account/transactions?\
+                    page_size=100&page={page}",
                 headers=headers,
             )
             if response.status_code != 200:
