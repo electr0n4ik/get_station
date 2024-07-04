@@ -1,5 +1,5 @@
 Задание
- 
+
 Нужно реализовать методы auth и get_transactions класса GasStationSystem.
 
     на вход метода auth передается информация об учетной записи Credential.
